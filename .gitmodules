@@ -1,0 +1,6 @@
+[submodule "truly_shift_invariant_cnns"]
+	path = truly_shift_invariant_cnns
+	url = https://github.com/hmichaeli/truly_shift_invariant_cnns.git
+[submodule "CvT"]
+	path = CvT
+	url = https://github.com/hmichaeli/CvT.git
