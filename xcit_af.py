@@ -51,10 +51,6 @@ class XCiTAFConfig:
         
         if hasattr(self, "pe_first_act_kwargs") and type(self.pe_first_act_kwargs) == str:
             self.pe_first_act_kwargs = json.loads(self.pe_first_act_kwargs)
-        
-        # Set default value for learnable position encoding scaling
-        if not hasattr(self, "learnable_pos_scale") or self.learnable_pos_scale is None:
-            self.learnable_pos_scale = False
             
         # Set default value for positional constant bias
         if not hasattr(self, "pos_const_bias") or self.pos_const_bias is None:
@@ -504,7 +500,6 @@ class XCiTAF(nn.Module):
 
         if self.use_pos:
             pos_encoding = self.pos_module(B, Hp, Wp).reshape(B, -1, x.shape[1]).permute(0, 2, 1)
-            pos_encoding = pos_encoding * self.pos_scale
             x = x + pos_encoding
 
         x = self.pos_drop(x)
