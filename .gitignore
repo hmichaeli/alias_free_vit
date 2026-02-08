@@ -8,4 +8,4 @@ events.out.*
 detection/data
 semantic_segmentation/data
 results/
-scripts/
+scripts/*.pth
